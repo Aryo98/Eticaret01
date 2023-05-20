@@ -1,0 +1,25 @@
+﻿@model Eticaret01.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+}
+<h2>Kullanıcı Girişi</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken() 
+    @Html.ValidationSummary(true)
+    <div class="col-4 mb-3">
+        <label class="form-label">Kullanıcı Adınız:</label>
+        <input type="text" name="UserName" class="form-control" placeholder="Kullanıcı adınız:">
+        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+    </div>
+    <div class="col-4 mb-3">
+        <label class="form-label">Şifreniz:</label>
+        <input type="password" name="Password" class="form-control" placeholder="Şifreniz:">
+        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Giriş" />
+}
+
+

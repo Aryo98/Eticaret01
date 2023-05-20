@@ -1,0 +1,43 @@
+﻿@model Eticaret01.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+}
+<h2>Yeni Kullanıcı</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken() 
+    @Html.ValidationSummary(true)
+    <div class="col-4 mb-3">
+        <label class="form-label">Adınız:</label>
+        <input type="text" name="Name" class="form-control" placeholder="Adınız:">
+        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+    </div>
+    <div class="col-4 mb-3">
+        <label class="form-label">Soyadınız:</label>
+        <input type="text" name="Surname" class="form-control" placeholder="Soyadınız:">
+        @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+    </div>
+    <div class="col-4 mb-3">
+        <label class="form-label">Kullanıcı Adınız:</label>
+        <input type="text" name="UserName" class="form-control" placeholder="Kullanıcı adınız:">
+        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+    </div>
+    <div class="col-4 mb-3">
+        <label class="form-label">Email Adresiniz:</label>
+        <input type="email" name="Email" class="form-control" placeholder="Email adresiniz:">
+        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+    </div>
+    <div class="col-4 mb-3">
+        <label class="form-label">Şifreniz:</label>
+        <input type="password" name="Password" class="form-control" placeholder="Şifreniz:">
+        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+    </div>
+    <div class="col-4 mb-3">
+        <label class="form-label">Tekrar Şifreniz:</label>
+        <input type="password" name="RePassword" class="form-control" placeholder="Tekrar Şifreniz:">
+        @Html.ValidationMessageFor(model => model.RePassword, "", new { @class = "text-danger" })
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Kayıt Ol" />
+}

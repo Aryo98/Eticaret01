@@ -1,0 +1,17 @@
+﻿@using Eticaret01.Models
+@model Eticaret01.Models.Cart
+
+<style>
+    #cart {
+        color: white;
+    }
+</style>
+
+<ul class="navbar-nav my-2 my-lg-0">
+    <li id="cart" class="nav-item">
+        <a href="/Cart" class="nav-link">
+            <i class="fa fa-cart-plus"></i> (@Model._cartLines.Count)
+        </a>
+
+    </li>
+</ul>
